@@ -27,4 +27,4 @@ O cálculo do valor por pessoa é feito da seguinte forma:
 Esse APP tem por prioridade ser avaliado como atividade proposta na disciplina de Laboratório de Desenvolvimento Mobile e foi produzido por Ramon Santos - 3º período de Engenharia de Computação - Noite.
 
 O vídeo de demonstração do APP deve ser acessado pelo link:
-https://youtu.be/SYP1oqYJW_k
+https://www.youtube.com/watch?v=RXbvcekxjgs
