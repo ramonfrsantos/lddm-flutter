@@ -1,5 +1,6 @@
 import 'dart:io';
-
+import 'package:flutter/cupertino.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:agenda_de_contatos/helpers/contact_helper.dart';
 import 'package:flutter/material.dart';
 
@@ -37,13 +38,16 @@ class _ContactPageState extends State<ContactPage> {
     }
   }
 
+  File _image;
+  final picker = ImagePicker();
+
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: _requestPop,
       child: Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.red,
+          backgroundColor: CupertinoColors.link,
           title: Text(_editedContact.name ?? "Novo Contato"),
           centerTitle: true,
         ),
@@ -56,7 +60,7 @@ class _ContactPageState extends State<ContactPage> {
             }
           },
           child: Icon(Icons.save),
-          backgroundColor: Colors.red,
+          backgroundColor: CupertinoColors.link,
         ),
         body: SingleChildScrollView(
           padding: EdgeInsets.all(10.0),
@@ -71,10 +75,22 @@ class _ContactPageState extends State<ContactPage> {
                       image: DecorationImage(
                           image: _editedContact.img != null ?
                           FileImage(File(_editedContact.img)) :
-                          AssetImage("images/person.png")
+                          AssetImage("images/person.png"),
+                          fit: BoxFit.cover
                       )
                   ),
                 ),
+                onTap: () {
+                  ImagePicker.pickImage(source: ImageSource.camera).then((file){
+                    if(file == null){
+                      return;
+                    }
+                    setState(() {
+                      _editedContact.img = file.path;
+                    });
+                  });
+
+                }
               ),
               TextField(
                 controller: _nameController,
