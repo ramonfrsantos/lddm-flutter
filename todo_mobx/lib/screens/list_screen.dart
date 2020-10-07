@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:provider/provider.dart';
+import 'package:todomobx/stores/list_store.dart';
+import 'package:todomobx/stores/login_store.dart';
 import 'package:todomobx/widgets/custom_icon_button.dart';
 import 'package:todomobx/widgets/custom_text_field.dart';
 
@@ -11,6 +15,10 @@ class ListScreen extends StatefulWidget {
 }
 
 class _ListScreenState extends State<ListScreen> {
+
+  final ListStore listStore = ListStore();
+
+  final TextEditingController controller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -38,6 +46,7 @@ class _ListScreenState extends State<ListScreen> {
                       icon: Icon(Icons.exit_to_app),
                       color: Colors.white,
                       onPressed: (){
+                        Provider.of<LoginStore>(context, listen: false).logout();
                         Navigator.of(context).pushReplacement(
                           MaterialPageRoute(builder: (context)=>LoginScreen())
                         );
@@ -56,36 +65,49 @@ class _ListScreenState extends State<ListScreen> {
                     padding: const EdgeInsets.all(16),
                     child: Column(
                       children: <Widget>[
-                        CustomTextField(
-                          hint: 'Tarefa',
-                          onChanged: (todo){
-
-                          },
-                          suffix: CustomIconButton(
-                            radius: 32,
-                            iconData: Icons.add,
-                            onTap: (){
-
-                            },
-                          ),
-                        ),
+                        Observer(builder: (_){
+                          return CustomTextField(
+                            controller: controller,
+                            hint: 'Tarefa',
+                            onChanged: listStore.setNewToDoTitle,
+                            suffix: listStore.isFormValid ? CustomIconButton(
+                              radius: 32,
+                              iconData: Icons.add,
+                              onTap: (){
+                                listStore.addToDo();
+                                controller.clear();
+                              },
+                            ) : null,
+                          );
+                        }),
                         const SizedBox(height: 8,),
                         Expanded(
-                          child: ListView.separated(
-                            itemCount: 10,
-                            itemBuilder: (_, index){
-                              return ListTile(
-                                title: Text(
-                                  'Item $index',
-                                ),
-                                onTap: (){
-
-                                },
-                              );
-                            },
-                            separatorBuilder: (_, __){
-                              return Divider();
-                            },
+                          child: Observer(
+                              builder: (_){
+                                return ListView.separated(
+                                  itemCount: listStore.toDoList.length,
+                                  itemBuilder: (_, index){
+                                    final toDo = listStore.toDoList[index];
+                                    return Observer(builder: (_){
+                                      return ListTile(
+                                        title: Text(
+                                          toDo.title,
+                                          style: TextStyle(
+                                            decoration: toDo.done ?
+                                                TextDecoration.lineThrough : null,
+                                            color: toDo.done ?
+                                                Colors.grey : Colors.black
+                                          ),
+                                        ),
+                                        onTap: toDo.toggleDone,
+                                      );
+                                    });
+                                  },
+                                  separatorBuilder: (_, __){
+                                    return Divider();
+                                  },
+                                );
+                              }
                           ),
                         ),
                       ],
