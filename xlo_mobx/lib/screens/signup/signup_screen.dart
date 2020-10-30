@@ -35,15 +35,14 @@ class SignUpScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Observer(builder: (_){
+                    Observer(builder: (_) {
                       return Padding(
-                        padding: EdgeInsets.only(top: 8, bottom: 15),
-                        child: signupStore.userChecked
-                            ? MessageBox(
-                              error: signupStore.error,
-                            )
-                            : Container()
-                      );
+                          padding: EdgeInsets.only(top: 8, bottom: 15),
+                          child: signupStore.userChecked
+                              ? MessageBox(
+                                  error: signupStore.error,
+                                )
+                              : Container());
                     }),
                     FieldTitle(
                       title: 'Apelido',
@@ -163,8 +162,9 @@ class SignUpScreen extends StatelessWidget {
                             disabledColor: heavyColor.withAlpha(120),
                             child: signupStore.loading
                                 ? CircularProgressIndicator(
-                              valueColor: AlwaysStoppedAnimation(Colors.white),
-                            )
+                                    valueColor:
+                                        AlwaysStoppedAnimation(Colors.white),
+                                  )
                                 : Text('CADASTRAR'),
                             textColor: Colors.white,
                             elevation: 0,
@@ -183,7 +183,7 @@ class SignUpScreen extends StatelessWidget {
                         children: [
                           Text(
                             'Já tem conta? ',
-                            style: TextStyle(fontSize: 16),
+                            style: TextStyle(fontSize: 16, color: letterColor),
                           ),
                           GestureDetector(
                             onTap: Navigator.of(context).pop,

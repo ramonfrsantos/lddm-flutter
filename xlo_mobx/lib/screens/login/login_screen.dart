@@ -34,7 +34,7 @@ class LoginScreen extends StatelessWidget {
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontSize: 16,
-                        color: Colors.grey[900],
+                        color: letterColor,
                       ),
                     ),
                     Padding(
@@ -42,7 +42,7 @@ class LoginScreen extends StatelessWidget {
                       child: Text(
                         'E-mail:',
                         style: TextStyle(
-                          color: Colors.grey[800],
+                          color: letterColor,
                           fontSize: 16,
                           fontWeight: FontWeight.w700
                         ),
@@ -68,7 +68,7 @@ class LoginScreen extends StatelessWidget {
                           Text(
                             'Senha:',
                             style: TextStyle(
-                                color: Colors.grey[800],
+                                color: letterColor,
                                 fontSize: 16,
                                 fontWeight: FontWeight.w700
                             ),
@@ -78,7 +78,7 @@ class LoginScreen extends StatelessWidget {
                               'Esqueceu sua senha?',
                               style: TextStyle(
                                 decoration: TextDecoration.underline,
-                                color: mainColor
+                                color: heavyColor
                               ),
                             ),
                             onTap: (){},
@@ -129,7 +129,8 @@ class LoginScreen extends StatelessWidget {
                           Text(
                             'Não tem cadastro? ',
                             style: TextStyle(
-                              fontSize: 16
+                              fontSize: 16,
+                              color: letterColor
                             ),
                           ),
                           GestureDetector(

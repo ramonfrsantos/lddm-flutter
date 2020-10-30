@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:xlo_mobx/main.dart';
 
 class FieldTitle extends StatelessWidget {
 
@@ -17,7 +18,7 @@ class FieldTitle extends StatelessWidget {
           Text(
             '$title   ',
             style: TextStyle(
-              color: Colors.grey[800],
+              color: heavyColor,
               fontSize: 16,
               fontWeight: FontWeight.w700
             ),
@@ -25,7 +26,7 @@ class FieldTitle extends StatelessWidget {
           Text(
             '$subtitle',
             style: TextStyle(
-              color: Colors.grey,
+              color: letterColor.withAlpha(120),
               fontSize: 12,
             ),
           )
