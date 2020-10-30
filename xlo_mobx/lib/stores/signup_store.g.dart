@@ -149,6 +149,36 @@ mixin _$SignupStore on _SignupStore, Store {
     });
   }
 
+  final _$errorAtom = Atom(name: '_SignupStore.error');
+
+  @override
+  String get error {
+    _$errorAtom.reportRead();
+    return super.error;
+  }
+
+  @override
+  set error(String value) {
+    _$errorAtom.reportWrite(value, super.error, () {
+      super.error = value;
+    });
+  }
+
+  final _$userCheckedAtom = Atom(name: '_SignupStore.userChecked');
+
+  @override
+  bool get userChecked {
+    _$userCheckedAtom.reportRead();
+    return super.userChecked;
+  }
+
+  @override
+  set userChecked(bool value) {
+    _$userCheckedAtom.reportWrite(value, super.userChecked, () {
+      super.userChecked = value;
+    });
+  }
+
   final _$_signUpAsyncAction = AsyncAction('_SignupStore._signUp');
 
   @override
@@ -222,6 +252,8 @@ phone: ${phone},
 pass1: ${pass1},
 pass2: ${pass2},
 loading: ${loading},
+error: ${error},
+userChecked: ${userChecked},
 nameIsValid: ${nameIsValid},
 emailIsValid: ${emailIsValid},
 phoneIsValid: ${phoneIsValid},
