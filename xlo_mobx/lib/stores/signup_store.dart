@@ -1,5 +1,7 @@
 import 'package:mobx/mobx.dart';
 import 'package:xlo_mobx/helpers/extensions.dart';
+import 'package:xlo_mobx/models/user.dart';
+import 'package:xlo_mobx/repositories/user_repository.dart';
 part 'signup_store.g.dart';
 
 class SignupStore = _SignupStore with _$SignupStore;
@@ -102,5 +104,27 @@ abstract class _SignupStore with Store {
   bool get isFormValid =>
       nameIsValid && emailIsValid &&
           phoneIsValid && pass1IsValid && pass2IsValid;
-  
+
+  @computed
+  Function get signUpPressed => (isFormValid && !loading) ? _signUp : null;
+
+  @observable
+  bool loading = false;
+
+  @action
+  Future<void> _signUp () async {
+    loading = true;
+
+    final user = User(
+      name: name,
+      email: email,
+      phone: phone,
+      password: pass1
+    );
+
+    await UserRespository().signUp(user);
+
+    loading = false;
+  }
+
 }

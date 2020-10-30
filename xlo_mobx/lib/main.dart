@@ -4,10 +4,10 @@ import 'package:parse_server_sdk/parse_server_sdk.dart';
 import 'package:xlo_mobx/screens/base/base_screen.dart';
 import 'package:xlo_mobx/stores/page_store.dart';
 
-final mainColor = Color(0xFFFEDBD0);
+final mainColor = Color(0xFFfff0f0);
 final secondaryColor = Color(0xFFFEEAE6);
 final cursorColor = Color(0x77442C2E);
-final heavyColor = Color(0xFF442C2E);
+final heavyColor = Color(0xFF835858);
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

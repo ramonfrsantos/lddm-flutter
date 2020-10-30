@@ -40,6 +40,7 @@ class SignUpScreen extends StatelessWidget {
                     ),
                     Observer(builder: (_) {
                       return TextField(
+                        enabled: !signupStore.loading,
                         decoration: InputDecoration(
                             filled: true,
                             fillColor: Colors.white,
@@ -60,6 +61,7 @@ class SignUpScreen extends StatelessWidget {
                     Observer(
                       builder: (_) {
                         return TextField(
+                          enabled: !signupStore.loading,
                           decoration: InputDecoration(
                               filled: true,
                               fillColor: Colors.white,
@@ -82,6 +84,7 @@ class SignUpScreen extends StatelessWidget {
                     ),
                     Observer(builder: (_) {
                       return TextField(
+                        enabled: !signupStore.loading,
                         inputFormatters: [
                           WhitelistingTextInputFormatter.digitsOnly,
                           TelefoneInputFormatter()
@@ -106,6 +109,7 @@ class SignUpScreen extends StatelessWidget {
                     ),
                     Observer(builder: (_) {
                       return TextField(
+                        enabled: !signupStore.loading,
                         decoration: InputDecoration(
                             filled: true,
                             fillColor: Colors.white,
@@ -125,6 +129,7 @@ class SignUpScreen extends StatelessWidget {
                     ),
                     Observer(builder: (_) {
                       return TextField(
+                        enabled: !signupStore.loading,
                         decoration: InputDecoration(
                             filled: true,
                             fillColor: Colors.white,
@@ -144,13 +149,17 @@ class SignUpScreen extends StatelessWidget {
                         margin: EdgeInsets.only(top: 15, bottom: 10),
                         child: RaisedButton(
                             color: heavyColor,
-                            disabledColor: heavyColor.withAlpha(80),
-                            child: Text('CADASTRAR'),
+                            disabledColor: heavyColor.withAlpha(120),
+                            child: signupStore.loading
+                                ? CircularProgressIndicator(
+                              valueColor: AlwaysStoppedAnimation(Colors.white),
+                            )
+                                : Text('CADASTRAR'),
                             textColor: Colors.white,
                             elevation: 0,
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(20)),
-                            onPressed: signupStore.isFormValid ? (){} : null),
+                            onPressed: signupStore.signUpPressed),
                       );
                     }),
                     Divider(
