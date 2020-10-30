@@ -57,15 +57,21 @@ class SignUpScreen extends StatelessWidget {
                       title: 'E-mail',
                       subtitle: 'Enviaremos um e-mail de confirmação.',
                     ),
-                    TextField(
-                      decoration: InputDecoration(
-                          filled: true,
-                          fillColor: Colors.white,
-                          border: OutlineInputBorder(),
-                          hintText: 'Ex: pedrosilva@gmail.com',
-                          isDense: true),
-                      keyboardType: TextInputType.emailAddress,
-                      autocorrect: false,
+                    Observer(
+                      builder: (_) {
+                        return TextField(
+                          decoration: InputDecoration(
+                              filled: true,
+                              fillColor: Colors.white,
+                              border: OutlineInputBorder(),
+                              hintText: 'Ex: pedrosilva@gmail.com',
+                              isDense: true,
+                              errorText: signupStore.emailError),
+                          keyboardType: TextInputType.emailAddress,
+                          autocorrect: false,
+                          onChanged: signupStore.setEmail,
+                        );
+                      },
                     ),
                     SizedBox(
                       height: 16,
@@ -74,19 +80,23 @@ class SignUpScreen extends StatelessWidget {
                       title: 'Celular',
                       subtitle: 'Proteja sua conta.',
                     ),
-                    TextField(
-                      inputFormatters: [
-                        WhitelistingTextInputFormatter.digitsOnly,
-                        TelefoneInputFormatter()
-                      ],
-                      decoration: InputDecoration(
-                          filled: true,
-                          fillColor: Colors.white,
-                          border: OutlineInputBorder(),
-                          hintText: 'Ex: (99) 99999-9999',
-                          isDense: true),
-                      keyboardType: TextInputType.phone,
-                    ),
+                    Observer(builder: (_) {
+                      return TextField(
+                        inputFormatters: [
+                          WhitelistingTextInputFormatter.digitsOnly,
+                          TelefoneInputFormatter()
+                        ],
+                        decoration: InputDecoration(
+                            filled: true,
+                            fillColor: Colors.white,
+                            border: OutlineInputBorder(),
+                            hintText: 'Ex: (99) 99999-9999',
+                            isDense: true,
+                            errorText: signupStore.phoneError),
+                        keyboardType: TextInputType.phone,
+                        onChanged: signupStore.setPhone,
+                      );
+                    }),
                     SizedBox(
                       height: 16,
                     ),
@@ -94,14 +104,18 @@ class SignUpScreen extends StatelessWidget {
                       title: 'Senha',
                       subtitle: 'Use letras, números e caracteres especiais.',
                     ),
-                    TextField(
-                      decoration: InputDecoration(
-                          filled: true,
-                          fillColor: Colors.white,
-                          border: OutlineInputBorder(),
-                          isDense: true),
-                      obscureText: true,
-                    ),
+                    Observer(builder: (_) {
+                      return TextField(
+                        decoration: InputDecoration(
+                            filled: true,
+                            fillColor: Colors.white,
+                            border: OutlineInputBorder(),
+                            isDense: true,
+                            errorText: signupStore.pass1Error),
+                        obscureText: true,
+                        onChanged: signupStore.setPass1,
+                      );
+                    }),
                     SizedBox(
                       height: 16,
                     ),
@@ -109,25 +123,36 @@ class SignUpScreen extends StatelessWidget {
                       title: 'Confirmar Senha',
                       subtitle: 'Repita a senha.',
                     ),
-                    TextField(
-                      decoration: InputDecoration(
-                          filled: true,
-                          fillColor: Colors.white,
-                          border: OutlineInputBorder(),
-                          isDense: true),
-                      obscureText: true,
-                    ),
+                    Observer(builder: (_) {
+                      return TextField(
+                        decoration: InputDecoration(
+                            filled: true,
+                            fillColor: Colors.white,
+                            border: OutlineInputBorder(),
+                            isDense: true,
+                            errorText: signupStore.pass2Error),
+                        obscureText: true,
+                        onChanged: signupStore.setPass2,
+                      );
+                    }),
                     SizedBox(
                       height: 8,
                     ),
-                    RaisedButton(
-                        color: heavyColor,
-                        child: Text('CADASTRAR'),
-                        textColor: Colors.white,
-                        elevation: 0,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20)),
-                        onPressed: () {}),
+                    Observer(builder: (_) {
+                      return Container(
+                        height: 40,
+                        margin: EdgeInsets.only(top: 15, bottom: 10),
+                        child: RaisedButton(
+                            color: heavyColor,
+                            disabledColor: heavyColor.withAlpha(80),
+                            child: Text('CADASTRAR'),
+                            textColor: Colors.white,
+                            elevation: 0,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20)),
+                            onPressed: signupStore.isFormValid ? (){} : null),
+                      );
+                    }),
                     Divider(
                       color: Colors.black,
                     ),
@@ -146,7 +171,7 @@ class SignUpScreen extends StatelessWidget {
                               'Entrar',
                               style: TextStyle(
                                   decoration: TextDecoration.underline,
-                                  color: mainColor,
+                                  color: heavyColor,
                                   fontSize: 16),
                             ),
                           )
