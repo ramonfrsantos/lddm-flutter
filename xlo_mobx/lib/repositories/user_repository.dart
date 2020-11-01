@@ -23,6 +23,18 @@ class UserRespository {
     }
   }
 
+  Future<User> loginWithEmail(String email, String password) async {
+    final parseUser = ParseUser(email, password, null);
+
+    final response = await parseUser.login();
+    
+    if(response.success){
+      return mapParseToUser(response.result);
+    } else {
+      return Future.error(ParseErrors.getDescription(response.error.code));
+    }
+  }
+
   // Pegar todas as informações relacionadas ao parse e concentrar dentro do repositório
   User mapParseToUser(ParseUser parseUser){
     return User(
@@ -34,4 +46,5 @@ class UserRespository {
       type: UserType.values[parseUser.get(keyUserType)] // transforma o enumerador numa lista de elementos
     );
   }
+
 }
