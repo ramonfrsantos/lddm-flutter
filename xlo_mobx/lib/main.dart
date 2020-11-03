@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
-import 'package:parse_server_sdk/parse_server_sdk.dart';
+import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
 import 'package:xlo_mobx/screens/base/base_screen.dart';
 import 'package:xlo_mobx/stores/page_store.dart';
+import 'package:xlo_mobx/stores/user_manager_store.dart';
 
 final mainColor = Color(0xFF1a1a2e);
 final secondaryColor = Color(0xFF0f3460);
@@ -20,6 +21,7 @@ void main() async {
 
 void setupLocators(){
   GetIt.I.registerSingleton(PageStore());
+  GetIt.I.registerSingleton(UserManagerStore());
 }
 
 Future<void> initializeParse() async{

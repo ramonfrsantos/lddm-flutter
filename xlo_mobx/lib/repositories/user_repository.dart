@@ -1,4 +1,4 @@
-import 'package:parse_server_sdk/parse_server_sdk.dart';
+import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
 import 'package:xlo_mobx/models/user.dart';
 import 'package:xlo_mobx/repositories/parse_errors.dart';
 import 'package:xlo_mobx/repositories/table_keys.dart';
@@ -33,6 +33,20 @@ class UserRespository {
     } else {
       return Future.error(ParseErrors.getDescription(response.error.code));
     }
+  }
+
+  Future<User> currentUser() async{
+    final parseUser = await ParseUser.currentUser();
+    if(parseUser != null){
+      final response = await ParseUser
+          .getCurrentUserFromServer(parseUser.sessionToken);
+      if(response.success){
+        return mapParseToUser(response.result);
+      } else {
+        await parseUser.logout();
+      }
+    }
+    return null;
   }
 
   // Pegar todas as informações relacionadas ao parse e concentrar dentro do repositório

@@ -1,8 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:parse_server_sdk/parse_server_sdk.dart';
-import 'package:xlo_mobx/components/message_box.dart';
 import 'package:xlo_mobx/components/message_box_login.dart';
 import 'package:xlo_mobx/main.dart';
 import 'package:xlo_mobx/screens/signup/signup_screen.dart';
