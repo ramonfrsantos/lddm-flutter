@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:monecom/ui/components/cadastro_button.dart';
 import 'package:monecom/ui/components/email_button.dart';
 import 'package:monecom/ui/components/paisagem_view.dart';
 import 'package:monecom/ui/components/whatsapp_button.dart';
@@ -82,7 +81,6 @@ class _BaseScreenState extends State<BaseScreen> {
                   height: 40,
                 ),
                 EmailButton(_temp),
-                CadastroButton()
               ],
             ),
           ],
