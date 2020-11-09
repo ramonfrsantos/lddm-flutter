@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:monecom/ui/screens/base_screen.dart';
+import 'package:get_it/get_it.dart';
+import 'package:monecom/screens/base_screen.dart';
+import 'package:monecom/stores/cadastro_store.dart';
 
 void main() {
+  setupLocators();
   runApp(MyApp());
+}
+
+void setupLocators() {
+  GetIt.I.registerSingleton(CadastroStore());
 }
 
 class MyApp extends StatelessWidget {

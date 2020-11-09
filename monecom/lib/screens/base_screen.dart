@@ -1,9 +1,10 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:monecom/ui/components/email_button.dart';
-import 'package:monecom/ui/components/paisagem_view.dart';
-import 'package:monecom/ui/components/whatsapp_button.dart';
+import 'package:monecom/components/cadastro_button.dart';
+import 'package:monecom/components/email_button.dart';
+import 'package:monecom/components/paisagem_view.dart';
+import 'package:monecom/components/whatsapp_button.dart';
 import 'package:mqtt_client/mqtt_client.dart' as mqtt;
 
 class BaseScreen extends StatefulWidget {
@@ -80,6 +81,7 @@ class _BaseScreenState extends State<BaseScreen> {
                 SizedBox(
                   height: 40,
                 ),
+                CadastroButton(),
                 EmailButton(_temp),
               ],
             ),
