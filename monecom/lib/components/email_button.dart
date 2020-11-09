@@ -1,8 +1,10 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
-import 'package:monecom/screens/cadastro_screen.dart';
 import 'package:monecom/stores/cadastro_store.dart';
 import 'package:url_launcher/url_launcher.dart';
+
+DocumentSnapshot snapshot;
 
 class EmailButton extends StatelessWidget {
   final double valor;
@@ -10,12 +12,13 @@ class EmailButton extends StatelessWidget {
   EmailButton(this.valor);
 
   final CadastroStore cadastroStore = GetIt.I<CadastroStore>();
-  final CadastroScreen cadastroScreen = CadastroScreen();
+
+  FirebaseFirestore db = FirebaseFirestore.instance;
+
+  dynamic data;
 
   @override
   Widget build(BuildContext context) {
-    String message = "Estão fazendo ${valor.toInt()} graus.";
-
     /* 'ramon_r_santos@hotmail.com',
     'gustavolemosdossantos06@gmail.com',
     'ramonfrsantos@gmail.com',
@@ -41,21 +44,25 @@ class EmailButton extends StatelessWidget {
                 borderRadius: BorderRadius.circular(30.0),
               ),
               onPressed: () {
-                var lista = [];
-                var mails = cadastroScreen.listaEmails;
-                print(mails);
+                db.collection("clientes").get().then((querySnapshot) {
+                  querySnapshot.docs.forEach((result) {
+                    String message = "Estão fazendo ${valor.toInt()} graus.";
+                    var mails = result.data()['email'];
+                    print(mails);
 
-                final Uri _emailLaunchUri = Uri(
-                  scheme: 'mailto',
-                  path: '$mails',
-                  queryParameters: {
-                    'subject':
-                        '[Mon&Com] Estamos enviando informações do monitoramento.',
-                    'body': '$message'
-                  },
-                );
+                    final Uri _emailLaunchUri = Uri(
+                      scheme: 'mailto',
+                      path: '$mails',
+                      queryParameters: {
+                        'subject':
+                            '[Mon&Com] Estamos enviando informações do monitoramento.',
+                        'body': '$message'
+                      },
+                    );
 
-                launch(_emailLaunchUri.toString());
+                    launch(_emailLaunchUri.toString());
+                  });
+                });
               })),
     );
   }

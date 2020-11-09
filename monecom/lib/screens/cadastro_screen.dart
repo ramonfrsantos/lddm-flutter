@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:get_it/get_it.dart';
@@ -33,14 +34,19 @@ class CadastroScreen extends StatelessWidget {
                     child: Text('Enviar'),
                     onPressed: () {
                       if (cadastroStore.emailIsValid) {
-                        listaEmails.add(['${cadastroStore.email}']);
+                        FirebaseFirestore db = FirebaseFirestore.instance;
 
-                        var mails = listaEmails
+                        db.collection("clientes").add({
+                          "nome": "Ramon",
+                          "email": "${cadastroStore.email}",
+                        });
+
+                        /*var mails = listaEmails
                             .toString()
                             .replaceAll('[', '')
-                            .replaceAll(']', '');
+                            .replaceAll(']', '');*/
 
-                        print(mails);
+                        Navigator.pop(context);
                       } else {
                         return null;
                       }
