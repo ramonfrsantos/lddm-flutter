@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/monecom.iml" filepath="$PROJECT_DIR$/.idea/monecom.iml" />
+      <module fileurl="file://$PROJECT_DIR$/monecom.iml" filepath="$PROJECT_DIR$/monecom.iml" />
+      <module fileurl="file://$PROJECT_DIR$/android/monecom_android.iml" filepath="$PROJECT_DIR$/android/monecom_android.iml" />
     </modules>
   </component>
 </project>

@@ -1,0 +1,30 @@
+import 'package:flutter/material.dart';
+import 'package:monecom/ui/screens/base_screen.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Mon&Com',
+      debugShowCheckedModeBanner: false,
+      darkTheme: ThemeData(
+        brightness: Brightness.dark,
+        appBarTheme: AppBarTheme(
+          centerTitle: true,
+          textTheme: TextTheme(
+            headline6: TextStyle(
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ),
+      ),
+      themeMode: ThemeMode.dark,
+      home: BaseScreen(),
+    );
+  }
+}
