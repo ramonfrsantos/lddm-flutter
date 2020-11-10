@@ -1,7 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:get_it/get_it.dart';
-import 'package:monecom/stores/cadastro_store.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 DocumentSnapshot snapshot;
@@ -11,19 +9,9 @@ class EmailButton extends StatelessWidget {
 
   EmailButton(this.valor);
 
-  final CadastroStore cadastroStore = GetIt.I<CadastroStore>();
-
-  FirebaseFirestore db = FirebaseFirestore.instance;
-
-  dynamic data;
-
   @override
   Widget build(BuildContext context) {
-    /* 'ramon_r_santos@hotmail.com',
-    'gustavolemosdossantos06@gmail.com',
-    'ramonfrsantos@gmail.com',
-    'camposjoao177@gmail.com',
-    'bernardo_ragonezi@hotmail.com',*/
+    String message = "Estão fazendo ${valor.toInt()} graus.";
 
     return SizedBox(
       width: 350,
@@ -44,24 +32,32 @@ class EmailButton extends StatelessWidget {
                 borderRadius: BorderRadius.circular(30.0),
               ),
               onPressed: () {
-                db.collection("clientes").get().then((querySnapshot) {
-                  querySnapshot.docs.forEach((result) {
-                    String message = "Estão fazendo ${valor.toInt()} graus.";
-                    var mails = result.data()['email'];
-                    print(mails);
-
-                    final Uri _emailLaunchUri = Uri(
-                      scheme: 'mailto',
-                      path: '$mails',
-                      queryParameters: {
-                        'subject':
-                            '[Mon&Com] Estamos enviando informações do monitoramento.',
-                        'body': '$message'
-                      },
-                    );
-
-                    launch(_emailLaunchUri.toString());
+                FirebaseFirestore.instance
+                    .collection('clientes')
+                    .get()
+                    .then((value) {
+                  String mails = '';
+                  value.docs.forEach((element) {
+                    mails = '$mails' + '${element.data()["email"].toString()},';
                   });
+
+                  String removeLastChar(String str) {
+                    return str.substring(0, str.length - 1);
+                  }
+
+                  String listaEmails = removeLastChar(mails);
+
+                  final Uri _emailLaunchUri = Uri(
+                    scheme: 'mailto',
+                    path: '$listaEmails',
+                    queryParameters: {
+                      'subject':
+                          '[Mon&Com] Estamos enviando informações do monitoramento.',
+                      'body': '$message'
+                    },
+                  );
+
+                  launch(_emailLaunchUri.toString());
                 });
               })),
     );

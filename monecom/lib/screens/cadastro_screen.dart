@@ -7,10 +7,6 @@ import 'package:monecom/stores/cadastro_store.dart';
 class CadastroScreen extends StatelessWidget {
   final CadastroStore cadastroStore = GetIt.I<CadastroStore>();
 
-  var listaEmails = [];
-
-  int count = 0;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,7 +19,7 @@ class CadastroScreen extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              //_buildName(),
+              _buildName(),
               _buildEmail(),
               SizedBox(
                 height: 100,
@@ -33,18 +29,13 @@ class CadastroScreen extends StatelessWidget {
                   return RaisedButton(
                     child: Text('Enviar'),
                     onPressed: () {
-                      if (cadastroStore.emailIsValid) {
+                      if (cadastroStore.isFormValid) {
                         FirebaseFirestore db = FirebaseFirestore.instance;
 
                         db.collection("clientes").add({
-                          "nome": "Ramon",
+                          "nome": "${cadastroStore.name}",
                           "email": "${cadastroStore.email}",
                         });
-
-                        /*var mails = listaEmails
-                            .toString()
-                            .replaceAll('[', '')
-                            .replaceAll(']', '');*/
 
                         Navigator.pop(context);
                       } else {

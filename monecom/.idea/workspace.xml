@@ -5,13 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5899874b-135a-42dc-988b-f5f7e7fde365" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/android/app/google-services.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/settings_aar.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/android/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/components/email_button.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/components/email_button.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/screens/cadastro_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/cadastro_screen.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
@@ -108,26 +103,26 @@
       <screen x="0" y="0" width="1280" height="689" />
     </state>
     <state x="145" y="96" key="FileChooserDialogImpl/0.0.1280.689@0.0.1280.689" timestamp="1604944531823" />
-    <state width="1236" height="159" key="GridCell.Tab.0.bottom" timestamp="1604962155527">
+    <state width="1236" height="130" key="GridCell.Tab.0.bottom" timestamp="1604975893130">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state width="1236" height="159" key="GridCell.Tab.0.bottom/0.0.1280.689@0.0.1280.689" timestamp="1604962155527" />
-    <state width="1236" height="159" key="GridCell.Tab.0.center" timestamp="1604962155526">
+    <state width="1236" height="130" key="GridCell.Tab.0.bottom/0.0.1280.689@0.0.1280.689" timestamp="1604975893130" />
+    <state width="1236" height="130" key="GridCell.Tab.0.center" timestamp="1604975893129">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state width="1236" height="159" key="GridCell.Tab.0.center/0.0.1280.689@0.0.1280.689" timestamp="1604962155526" />
-    <state width="1236" height="159" key="GridCell.Tab.0.left" timestamp="1604962155525">
+    <state width="1236" height="130" key="GridCell.Tab.0.center/0.0.1280.689@0.0.1280.689" timestamp="1604975893129" />
+    <state width="1236" height="130" key="GridCell.Tab.0.left" timestamp="1604975893129">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state width="1236" height="159" key="GridCell.Tab.0.left/0.0.1280.689@0.0.1280.689" timestamp="1604962155525" />
-    <state width="1236" height="159" key="GridCell.Tab.0.right" timestamp="1604962155526">
+    <state width="1236" height="130" key="GridCell.Tab.0.left/0.0.1280.689@0.0.1280.689" timestamp="1604975893129" />
+    <state width="1236" height="130" key="GridCell.Tab.0.right" timestamp="1604975893130">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state width="1236" height="159" key="GridCell.Tab.0.right/0.0.1280.689@0.0.1280.689" timestamp="1604962155526" />
-    <state x="0" y="91" key="IDE.errors.dialog" timestamp="1604954699189">
+    <state width="1236" height="130" key="GridCell.Tab.0.right/0.0.1280.689@0.0.1280.689" timestamp="1604975893130" />
+    <state x="0" y="91" key="IDE.errors.dialog" timestamp="1604975496370">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state x="0" y="91" key="IDE.errors.dialog/0.0.1280.689@0.0.1280.689" timestamp="1604954699189" />
+    <state x="0" y="91" key="IDE.errors.dialog/0.0.1280.689@0.0.1280.689" timestamp="1604975496370" />
     <state x="348" y="78" width="585" height="534" key="find.popup" timestamp="1604925041580">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
