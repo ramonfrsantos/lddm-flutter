@@ -2,41 +2,30 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:monecom/components/cadastro_button.dart';
-import 'package:monecom/components/email_button.dart';
 import 'package:monecom/components/paisagem_view.dart';
-import 'package:monecom/components/whatsapp_button.dart';
+import 'package:monecom/screens/compartilha_screen.dart';
 import 'package:mqtt_client/mqtt_client.dart' as mqtt;
+import 'package:typed_data/typed_buffers.dart' show Uint8Buffer;
 
 class BaseScreen extends StatefulWidget {
-  BaseScreen({Key key, this.title}) : super(key: key);
-
-  final String title;
-
   @override
   _BaseScreenState createState() => _BaseScreenState();
 }
 
 class _BaseScreenState extends State<BaseScreen> {
-  String broker = 'test.mosquitto.org';
+  String broker = 'broker.hivemq.com';
+  double _temp = 20;
   int port = 1883;
   String clientIdentifier = 'monecomclientid';
   String topic = 'monecom_temperatura';
-
   mqtt.MqttClient client;
   mqtt.MqttConnectionState connectionState;
-
-  double _temp = 20;
-
   StreamSubscription subscription;
-
-  //Conecta no servidor MQTT assim que inicializar a tela
 
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) => _connect());
   }
-
-  //Assina o tópico onde virão os dados de temperatura
 
   void _subscribeToTopic(String topic) {
     if (connectionState == mqtt.MqttConnectionState.connected) {
@@ -47,67 +36,104 @@ class _BaseScreenState extends State<BaseScreen> {
 
   @override
   Widget build(BuildContext context) {
-    print(_temp);
-
     return Scaffold(
       appBar: AppBar(
-        title: Text("Mon&Com"),
+        title: Text(
+          'Mon&Com',
+          style: TextStyle(
+            fontSize: 24,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        centerTitle: true,
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                SizedBox(
-                  height: 10,
-                ),
-                Container(
-                  padding: EdgeInsets.all(20),
+      body: Center(
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              SizedBox(
+                width: 250,
+                height: 60,
+                child: CadastroButton(),
+              ),
+              SizedBox(
+                height: 40,
+              ),
+              SizedBox(
+                width: 250,
+                height: 60,
+                child: RaisedButton(
+                  onPressed: () {
+                    return Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => CompartilhaScreen(_temp)),
+                    );
+                  },
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30.0),
+                  ),
                   child: Text(
-                    "A temperatura atual é de $_temp ºC.",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 30,
+                    'Compartilhamento',
+                    style: TextStyle(fontSize: 20),
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 50,
+              ),
+              SizedBox(
+                height: 450,
+                width: 340,
+                child: Padding(
+                  padding: EdgeInsets.all(15),
+                  child: Card(
+                    elevation: 5,
+                    clipBehavior: Clip.antiAlias,
+                    child: Padding(
+                      padding: EdgeInsets.all(12),
+                      child: SingleChildScrollView(
+                        child: Column(
+                          children: [
+                            SizedBox(
+                              height: 10,
+                            ),
+                            Text(
+                              "A temperatura atual é de $_temp ºC.",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                color: Colors.black.withOpacity(0.6),
+                                fontSize: 30,
+                              ),
+                            ),
+                            SizedBox(
+                              height: 40,
+                            ),
+                            PaisagemView(_temp),
+                            SizedBox(
+                              height: 40,
+                            ),
+                          ],
+                        ),
+                      ),
                     ),
                   ),
                 ),
-                SizedBox(
-                  height: 40,
-                ),
-                PaisagemView(_temp),
-                SizedBox(
-                  height: 40,
-                ),
-                CadastroButton(),
-                EmailButton(_temp),
-              ],
-            ),
-          ],
+              ),
+            ],
+          ),
         ),
       ),
-      floatingActionButton: WhatsAppButton(_temp),
+      floatingActionButton: FloatingActionButton(
+        onPressed: _onoff,
+        tooltip: 'Ligar/Desligar',
+        child: Icon(
+          Icons.play_arrow,
+          size: 40,
+        ),
+      ),
     );
   }
-
-  /*FloatingActionButton(
-    onPressed: _onoff,
-    backgroundColor: Colors.blue,
-    tooltip: 'Ligar/Desligar',
-    child: Icon(
-      Icons.play_arrow,
-      color: Colors.white,
-      size: 40,
-    ),
-  )*/
-
-  /*void _onoff() async {
-    Uint8Buffer value = Uint8Buffer();
-    value.add(1);
-    client.publishMessage("professor_onoff", mqtt.MqttQos.exactlyOnce, value);
-  }*/
 
   //Conecta no servidor MQTT à partir dos dados configurados nos atributos desta classe (broker, port, etc...)
 
@@ -186,5 +212,11 @@ class _BaseScreenState extends State<BaseScreen> {
     setState(() {
       _temp = double.parse(message);
     });
+  }
+
+  void _onoff() async {
+    Uint8Buffer value = Uint8Buffer();
+    value.add(1);
+    client.publishMessage("professor_onoff", mqtt.MqttQos.exactlyOnce, value);
   }
 }

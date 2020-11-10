@@ -11,7 +11,14 @@ class CadastroScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Cadastro'),
+        title: Text(
+          'Cadastro',
+          style: TextStyle(
+            fontSize: 24,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        centerTitle: true,
       ),
       body: Container(
         margin: EdgeInsets.all(24),
@@ -38,6 +45,12 @@ class CadastroScreen extends StatelessWidget {
                         });
 
                         Navigator.pop(context);
+
+                        return showDialog(
+                            context: context,
+                            builder: (BuildContext context) {
+                              return _buildAlertDialog();
+                            });
                       } else {
                         return null;
                       }
@@ -49,6 +62,28 @@ class CadastroScreen extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+
+  Widget _buildAlertDialog() {
+    return AlertDialog(
+      title: Text(
+        "Pronto!",
+        style: TextStyle(
+          fontSize: 24,
+        ),
+        textAlign: TextAlign.center,
+      ),
+      content: Text(
+        "O cliente foi cadastrado com sucesso.",
+        style: TextStyle(
+          fontSize: 18,
+        ),
+        textAlign: TextAlign.center,
+      ),
+      contentPadding: EdgeInsets.all(50.0),
+      shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(Radius.circular(20.0))),
     );
   }
 
