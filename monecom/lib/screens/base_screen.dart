@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:monecom/components/cadastro_button.dart';
 import 'package:monecom/components/paisagem_view.dart';
 import 'package:monecom/screens/compartilha_screen.dart';
+import 'package:monecom/screens/lista_clientes_screen.dart';
 import 'package:mqtt_client/mqtt_client.dart' as mqtt;
-import 'package:typed_data/typed_buffers.dart' show Uint8Buffer;
 
 class BaseScreen extends StatefulWidget {
   @override
@@ -57,7 +57,7 @@ class _BaseScreenState extends State<BaseScreen> {
                 child: CadastroButton(),
               ),
               SizedBox(
-                height: 40,
+                height: 30,
               ),
               SizedBox(
                 width: 250,
@@ -80,7 +80,7 @@ class _BaseScreenState extends State<BaseScreen> {
                 ),
               ),
               SizedBox(
-                height: 50,
+                height: 40,
               ),
               SizedBox(
                 height: 450,
@@ -125,10 +125,13 @@ class _BaseScreenState extends State<BaseScreen> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _onoff,
+        onPressed: () {
+          Navigator.push(context,
+              MaterialPageRoute(builder: (_) => ListaClientesScreen()));
+        },
         tooltip: 'Ligar/Desligar',
         child: Icon(
-          Icons.play_arrow,
+          Icons.people,
           size: 40,
         ),
       ),
@@ -214,9 +217,9 @@ class _BaseScreenState extends State<BaseScreen> {
     });
   }
 
-  void _onoff() async {
+  /*void _onoff() async {
     Uint8Buffer value = Uint8Buffer();
     value.add(1);
     client.publishMessage("professor_onoff", mqtt.MqttQos.exactlyOnce, value);
-  }
+  }*/
 }
