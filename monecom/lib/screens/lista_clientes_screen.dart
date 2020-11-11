@@ -85,11 +85,18 @@ class ListaClientesScreen extends StatelessWidget {
                                     ),
                                     title: Text(
                                       "Atenção:",
-                                      style: TextStyle(color: shrineBlack400),
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                        fontSize: 22,
+                                        color: shrineBlack400,
+                                      ),
                                     ),
                                     content: Text(
                                       "Deseja confirmar a exclusão do cadastro desse usuário?",
-                                      style: TextStyle(color: shrineBlack400),
+                                      style: TextStyle(
+                                        fontSize: 18,
+                                        color: shrineBlack400,
+                                      ),
                                     ),
                                     actions: [
                                       FlatButton(

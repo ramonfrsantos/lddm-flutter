@@ -37,6 +37,11 @@ class _GadoInfoScreenState extends State<GadoInfoScreen> {
   Widget build(BuildContext context) {
     _getData();
 
+    String formattedDay =
+        "${data.toString().substring(8, 10)}/${data.toString().substring(5, 7)}/${data.toString().substring(0, 4)}";
+
+    String formattedHour = "${data.toString().substring(11, 19)}";
+
     return Scaffold(
       appBar: AppBar(
         iconTheme: IconThemeData(color: Colors.white),
@@ -52,7 +57,7 @@ class _GadoInfoScreenState extends State<GadoInfoScreen> {
       ),
       body: Center(
           child: SizedBox(
-        height: 380,
+        height: 420,
         width: 340,
         child: Padding(
           padding: EdgeInsets.all(15),
@@ -88,66 +93,107 @@ class _GadoInfoScreenState extends State<GadoInfoScreen> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          SizedBox(
-                            height: 80,
-                          ),
-                          RichText(
-                              text: TextSpan(children: [
-                            TextSpan(
-                              text: "ID do Sensor: ",
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 22,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                            TextSpan(
-                              text: "$idSensor",
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.normal),
-                            )
-                          ])),
-                          SizedBox(
-                            height: 20,
-                          ),
-                          RichText(
-                              text: TextSpan(children: [
-                            TextSpan(
-                              text: "Área de acionamento: ",
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 22,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                            TextSpan(
-                              text: "$statusSensor",
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.normal),
-                            )
-                          ])),
-                          SizedBox(
-                            height: 20,
-                          ),
-                          RichText(
-                              text: TextSpan(children: [
-                            TextSpan(
-                              text: "Data e hora: ",
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 22,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                            TextSpan(
-                              text: "$data",
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.normal),
-                            )
-                          ])),
+                          idSensor == null
+                              ? SizedBox(
+                                  height: 100,
+                                )
+                              : SizedBox(
+                                  height: 80,
+                                ),
+                          idSensor == null
+                              ? Container()
+                              : RichText(
+                                  text: TextSpan(children: [
+                                  TextSpan(
+                                    text: "ID do Sensor: ",
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 22,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  TextSpan(
+                                    text: idSensor == null ? "" : "$idSensor",
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.normal),
+                                  )
+                                ])),
+                          idSensor == null
+                              ? Container()
+                              : SizedBox(
+                                  height: 20,
+                                ),
+                          idSensor == null
+                              ? Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: CircularProgressIndicator(),
+                                )
+                              : RichText(
+                                  text: TextSpan(children: [
+                                  TextSpan(
+                                    text: "Área de acionamento: ",
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 22,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  TextSpan(
+                                    text: "$statusSensor",
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.normal),
+                                  )
+                                ])),
+                          idSensor == null
+                              ? Container()
+                              : SizedBox(
+                                  height: 20,
+                                ),
+                          idSensor == null
+                              ? Container()
+                              : RichText(
+                                  text: TextSpan(children: [
+                                  TextSpan(
+                                    text: "Data: ",
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 22,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  TextSpan(
+                                    text: data == null ? "" : "$formattedDay",
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.normal),
+                                  )
+                                ])),
+                          idSensor == null
+                              ? Container()
+                              : SizedBox(
+                                  height: 20,
+                                ),
+                          idSensor == null
+                              ? Container()
+                              : RichText(
+                                  text: TextSpan(children: [
+                                  TextSpan(
+                                    text: "Horário: ",
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 22,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  TextSpan(
+                                    text: data == null ? "" : "$formattedHour",
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.normal),
+                                  )
+                                ])),
                         ],
                       ),
                     ),

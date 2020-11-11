@@ -81,10 +81,11 @@ class CadastroScreen extends StatelessWidget {
     return AlertDialog(
       backgroundColor: Colors.white,
       title: Text(
-        "Pronto!",
+        "Pronto",
         style: TextStyle(
           color: shrineBlack400,
           fontSize: 24,
+          fontWeight: FontWeight.w900,
         ),
         textAlign: TextAlign.center,
       ),
@@ -92,11 +93,12 @@ class CadastroScreen extends StatelessWidget {
         "O cliente foi cadastrado com sucesso!",
         style: TextStyle(
           color: shrineBlack400,
-          fontSize: 20,
+          fontSize: 18,
         ),
         textAlign: TextAlign.center,
       ),
-      contentPadding: EdgeInsets.only(left: 20, top: 30.0, right: 20),
+      contentPadding:
+          EdgeInsets.only(left: 20, top: 30.0, right: 20, bottom: 40),
       shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(20.0))),
     );
