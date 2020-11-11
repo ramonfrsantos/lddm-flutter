@@ -7,6 +7,8 @@ import 'package:monecom/screens/compartilha_screen.dart';
 import 'package:monecom/screens/lista_clientes_screen.dart';
 import 'package:mqtt_client/mqtt_client.dart' as mqtt;
 
+import '../main.dart';
+
 class BaseScreen extends StatefulWidget {
   @override
   _BaseScreenState createState() => _BaseScreenState();
@@ -47,80 +49,87 @@ class _BaseScreenState extends State<BaseScreen> {
         ),
         centerTitle: true,
       ),
-      body: Center(
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              SizedBox(
-                width: 250,
-                height: 60,
-                child: CadastroButton(),
-              ),
-              SizedBox(
-                height: 30,
-              ),
-              SizedBox(
-                width: 250,
-                height: 60,
-                child: RaisedButton(
-                  onPressed: () {
-                    return Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => CompartilhaScreen(_temp)),
-                    );
-                  },
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30.0),
-                  ),
-                  child: Text(
-                    'Compartilhamento',
-                    style: TextStyle(fontSize: 20),
+      body: Container(
+        margin: EdgeInsets.only(bottom: 100),
+        child: Center(
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                SizedBox(
+                  height: 45,
+                ),
+                SizedBox(
+                  width: 250,
+                  height: 60,
+                  child: CadastroButton(),
+                ),
+                SizedBox(
+                  height: 30,
+                ),
+                SizedBox(
+                  width: 250,
+                  height: 60,
+                  child: RaisedButton(
+                    onPressed: () {
+                      return Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => CompartilhaScreen(_temp)),
+                      );
+                    },
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30.0),
+                    ),
+                    child: Text(
+                      'Compartilhamento',
+                      style: TextStyle(fontSize: 20),
+                    ),
                   ),
                 ),
-              ),
-              SizedBox(
-                height: 40,
-              ),
-              SizedBox(
-                height: 450,
-                width: 340,
-                child: Padding(
-                  padding: EdgeInsets.all(15),
-                  child: Card(
-                    elevation: 5,
-                    clipBehavior: Clip.antiAlias,
-                    child: Padding(
-                      padding: EdgeInsets.all(12),
-                      child: SingleChildScrollView(
-                        child: Column(
-                          children: [
-                            SizedBox(
-                              height: 10,
-                            ),
-                            Text(
-                              "A temperatura atual é de $_temp ºC.",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                color: Colors.black.withOpacity(0.6),
-                                fontSize: 30,
+                SizedBox(
+                  height: 30,
+                ),
+                SizedBox(
+                  height: 450,
+                  width: 340,
+                  child: Padding(
+                    padding: EdgeInsets.all(15),
+                    child: Card(
+                      color: shrineSurfaceWhite,
+                      elevation: 5,
+                      clipBehavior: Clip.antiAlias,
+                      child: Padding(
+                        padding: EdgeInsets.all(12),
+                        child: SingleChildScrollView(
+                          child: Column(
+                            children: [
+                              SizedBox(
+                                height: 10,
                               ),
-                            ),
-                            SizedBox(
-                              height: 40,
-                            ),
-                            PaisagemView(_temp),
-                            SizedBox(
-                              height: 40,
-                            ),
-                          ],
+                              Text(
+                                "A temperatura atual é de $_temp ºC.",
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  color: Colors.black.withOpacity(0.6),
+                                  fontSize: 30,
+                                ),
+                              ),
+                              SizedBox(
+                                height: 40,
+                              ),
+                              PaisagemView(_temp),
+                              SizedBox(
+                                height: 40,
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

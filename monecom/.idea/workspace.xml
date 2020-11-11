@@ -5,9 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5899874b-135a-42dc-988b-f5f7e7fde365" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/lib/screens/lista_clientes_screen.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/screens/base_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/base_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/screens/lista_clientes_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/lista_clientes_screen.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,9 +44,6 @@
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\HP\Desktop\LDDM\projetos\lddm-flutter\monecom\android\app" />
-    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />
       <recent name="ui" />
@@ -54,6 +51,9 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\HP\Desktop\LDDM\projetos\lddm-flutter\monecom\assets\images" />
       <recent name="C:\Users\HP\Desktop\LDDM\projetos\lddm-flutter\monecom\lib\library\util" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\HP\Desktop\LDDM\projetos\lddm-flutter\monecom\android\app" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -93,38 +93,38 @@
       <screen x="0" y="0" width="1280" height="689" />
     </state>
     <state x="371" y="92" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.689@0.0.1280.689" timestamp="1604928328714" />
-    <state x="59" y="101" width="613" height="504" key="AVDManager" timestamp="1604881131716">
+    <state x="59" y="101" width="613" height="504" key="AVDManager" timestamp="1605046893796">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state x="59" y="101" width="613" height="504" key="AVDManager/0.0.1280.689@0.0.1280.689" timestamp="1604881131716" />
+    <state x="59" y="101" width="613" height="504" key="AVDManager/0.0.1280.689@0.0.1280.689" timestamp="1605046893796" />
     <state x="145" y="96" key="FileChooserDialogImpl" timestamp="1605029554592">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
     <state x="145" y="96" key="FileChooserDialogImpl/0.0.1280.689@0.0.1280.689" timestamp="1605029554592" />
-    <state width="1236" height="180" key="GridCell.Tab.0.bottom" timestamp="1605035476558">
+    <state width="1236" height="110" key="GridCell.Tab.0.bottom" timestamp="1605052779508">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state width="1236" height="180" key="GridCell.Tab.0.bottom/0.0.1280.689@0.0.1280.689" timestamp="1605035476558" />
-    <state width="1236" height="180" key="GridCell.Tab.0.center" timestamp="1605035476557">
+    <state width="1236" height="110" key="GridCell.Tab.0.bottom/0.0.1280.689@0.0.1280.689" timestamp="1605052779508" />
+    <state width="1236" height="110" key="GridCell.Tab.0.center" timestamp="1605052779507">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state width="1236" height="180" key="GridCell.Tab.0.center/0.0.1280.689@0.0.1280.689" timestamp="1605035476557" />
-    <state width="1236" height="180" key="GridCell.Tab.0.left" timestamp="1605035476557">
+    <state width="1236" height="110" key="GridCell.Tab.0.center/0.0.1280.689@0.0.1280.689" timestamp="1605052779507" />
+    <state width="1236" height="110" key="GridCell.Tab.0.left" timestamp="1605052779507">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state width="1236" height="180" key="GridCell.Tab.0.left/0.0.1280.689@0.0.1280.689" timestamp="1605035476557" />
-    <state width="1236" height="180" key="GridCell.Tab.0.right" timestamp="1605035476558">
+    <state width="1236" height="110" key="GridCell.Tab.0.left/0.0.1280.689@0.0.1280.689" timestamp="1605052779507" />
+    <state width="1236" height="110" key="GridCell.Tab.0.right" timestamp="1605052779508">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state width="1236" height="180" key="GridCell.Tab.0.right/0.0.1280.689@0.0.1280.689" timestamp="1605035476558" />
-    <state x="0" y="91" key="IDE.errors.dialog" timestamp="1604975496370">
+    <state width="1236" height="110" key="GridCell.Tab.0.right/0.0.1280.689@0.0.1280.689" timestamp="1605052779508" />
+    <state x="0" y="91" key="IDE.errors.dialog" timestamp="1605046494353">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state x="0" y="91" key="IDE.errors.dialog/0.0.1280.689@0.0.1280.689" timestamp="1604975496370" />
-    <state x="348" y="78" width="585" height="534" key="find.popup" timestamp="1604925041580">
+    <state x="0" y="91" key="IDE.errors.dialog/0.0.1280.689@0.0.1280.689" timestamp="1605046494353" />
+    <state x="348" y="78" width="585" height="534" key="find.popup" timestamp="1605050013856">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state x="348" y="78" width="585" height="534" key="find.popup/0.0.1280.689@0.0.1280.689" timestamp="1604925041580" />
+    <state x="348" y="78" width="585" height="534" key="find.popup/0.0.1280.689@0.0.1280.689" timestamp="1605050013856" />
     <state x="298" y="153" key="run.anything.popup" timestamp="1604955940207">
       <screen x="0" y="0" width="1280" height="689" />
     </state>

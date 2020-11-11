@@ -20,54 +20,59 @@ class ListaClientesScreen extends StatelessWidget {
         ),
         centerTitle: true,
       ),
-      body: Center(
-        child: SingleChildScrollView(
-          child: SizedBox(
-            width: 350,
-            height: 700,
-            child: Card(
-              elevation: 4,
-              child: StreamBuilder(
-                stream: snapshots,
-                builder: (
-                  BuildContext context,
-                  AsyncSnapshot<QuerySnapshot> snapshot,
-                ) {
-                  if (snapshot.hasError) {
-                    return Center(
-                      child: Text("Error: ${snapshot.error}"),
-                    );
-                  }
-                  if (snapshot.connectionState == ConnectionState.waiting) {
-                    return Center(
-                      child: CircularProgressIndicator(),
-                    );
-                  }
-                  if (snapshot.data.docs.length == 0) {
-                    return Center(
-                      child: Text("Nenhuma tarefa ainda!"),
-                    );
-                  }
-                  return ListView.builder(
-                    itemCount: snapshot.data.docs.length,
-                    itemBuilder: (BuildContext context, int i) {
-                      var item = snapshot.data.docs[i].data();
+      body: Container(
+        margin: EdgeInsets.only(left: 32, top: 20, right: 32, bottom: 50),
+        child: Center(
+          child: SingleChildScrollView(
+            child: SizedBox(
+              height: 700,
+              child: Padding(
+                padding: EdgeInsets.only(bottom: 8),
+                child: Card(
+                  elevation: 4,
+                  child: StreamBuilder(
+                    stream: snapshots,
+                    builder: (
+                      BuildContext context,
+                      AsyncSnapshot<QuerySnapshot> snapshot,
+                    ) {
+                      if (snapshot.hasError) {
+                        return Center(
+                          child: Text("Error: ${snapshot.error}"),
+                        );
+                      }
+                      if (snapshot.connectionState == ConnectionState.waiting) {
+                        return Center(
+                          child: CircularProgressIndicator(),
+                        );
+                      }
+                      if (snapshot.data.docs.length == 0) {
+                        return Center(
+                          child: Text("Nenhuma tarefa ainda!"),
+                        );
+                      }
+                      return ListView.builder(
+                        itemCount: snapshot.data.docs.length,
+                        itemBuilder: (BuildContext context, int i) {
+                          var item = snapshot.data.docs[i].data();
 
-                      return GestureDetector(
-                        onTap: () {},
-                        child: ListTile(
-                          title: Text(item['nome']),
-                          subtitle: Text(
-                            item['email'],
-                            style: TextStyle(
-                              color: Colors.black.withOpacity(0.3),
+                          return GestureDetector(
+                            onTap: () {},
+                            child: ListTile(
+                              title: Text(item['nome']),
+                              subtitle: Text(
+                                item['email'],
+                                style: TextStyle(
+                                  color: Colors.black.withOpacity(0.3),
+                                ),
+                              ),
                             ),
-                          ),
-                        ),
+                          );
+                        },
                       );
                     },
-                  );
-                },
+                  ),
+                ),
               ),
             ),
           ),
