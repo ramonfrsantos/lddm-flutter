@@ -10,6 +10,8 @@ class CompartilhaScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        iconTheme: IconThemeData(color: Colors.white),
+        elevation: 0.8,
         title: Text(
           "Compartilhamento",
           style: TextStyle(

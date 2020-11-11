@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:get_it/get_it.dart';
+import 'package:monecom/main.dart';
 import 'package:monecom/stores/cadastro_store.dart';
 
 class CadastroScreen extends StatelessWidget {
@@ -11,6 +12,8 @@ class CadastroScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        iconTheme: IconThemeData(color: Colors.white),
+        elevation: 0.8,
         title: Text(
           'Cadastro',
           style: TextStyle(
@@ -67,21 +70,25 @@ class CadastroScreen extends StatelessWidget {
 
   Widget _buildAlertDialog() {
     return AlertDialog(
+      backgroundColor: Colors.white,
       title: Text(
         "Pronto!",
         style: TextStyle(
+          color: shrineBlack400,
           fontSize: 24,
         ),
         textAlign: TextAlign.center,
       ),
       content: Text(
-        "O cliente foi cadastrado com sucesso.",
+        "O cliente foi cadastrado com sucesso!",
         style: TextStyle(
-          fontSize: 18,
+          color: shrineBlack400,
+          fontSize: 20,
         ),
         textAlign: TextAlign.center,
       ),
-      contentPadding: EdgeInsets.all(50.0),
+      contentPadding:
+          EdgeInsets.only(left: 20, top: 30.0, right: 20, bottom: 40),
       shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(20.0))),
     );

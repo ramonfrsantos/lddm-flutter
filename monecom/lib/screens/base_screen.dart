@@ -3,11 +3,10 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:monecom/components/cadastro_button.dart';
 import 'package:monecom/components/paisagem_view.dart';
+import 'package:monecom/main.dart';
 import 'package:monecom/screens/compartilha_screen.dart';
 import 'package:monecom/screens/lista_clientes_screen.dart';
 import 'package:mqtt_client/mqtt_client.dart' as mqtt;
-
-import '../main.dart';
 
 class BaseScreen extends StatefulWidget {
   @override
@@ -40,6 +39,8 @@ class _BaseScreenState extends State<BaseScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        iconTheme: IconThemeData(color: Colors.white),
+        elevation: 0.8,
         title: Text(
           'Mon&Com',
           style: TextStyle(
@@ -70,6 +71,7 @@ class _BaseScreenState extends State<BaseScreen> {
                   width: 250,
                   height: 60,
                   child: RaisedButton(
+                    elevation: 8,
                     onPressed: () {
                       return Navigator.push(
                         context,
@@ -95,11 +97,14 @@ class _BaseScreenState extends State<BaseScreen> {
                   child: Padding(
                     padding: EdgeInsets.all(15),
                     child: Card(
-                      color: shrineSurfaceWhite,
-                      elevation: 5,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(40.0),
+                      ),
+                      color: shrineBlack100,
+                      elevation: 10,
                       clipBehavior: Clip.antiAlias,
                       child: Padding(
-                        padding: EdgeInsets.all(12),
+                        padding: EdgeInsets.all(24),
                         child: SingleChildScrollView(
                           child: Column(
                             children: [
@@ -107,12 +112,12 @@ class _BaseScreenState extends State<BaseScreen> {
                                 height: 10,
                               ),
                               Text(
-                                "A temperatura atual é de $_temp ºC.",
+                                "A temperatura atual é de ${_temp.toInt()} ºC.",
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
-                                  color: Colors.black.withOpacity(0.6),
-                                  fontSize: 30,
-                                ),
+                                    color: Colors.white,
+                                    fontSize: 24,
+                                    fontWeight: FontWeight.bold),
                               ),
                               SizedBox(
                                 height: 40,

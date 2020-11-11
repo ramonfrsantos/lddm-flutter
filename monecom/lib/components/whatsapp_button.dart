@@ -29,8 +29,9 @@ class WhatsAppButton extends StatelessWidget {
             ),
             Image.asset(
               "assets/images/icWhatsApp.png",
-              width: 32,
-              height: 32,
+              color: Colors.white,
+              width: 26,
+              height: 26,
             )
           ],
         ),
