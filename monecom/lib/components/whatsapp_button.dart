@@ -2,10 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class WhatsAppButton extends StatelessWidget {
-  final double value;
-
-  WhatsAppButton(this.value);
-
   @override
   Widget build(BuildContext context) {
     String menssagem = "Olá, gostaria de falar com um atendente.";

@@ -1,12 +1,14 @@
 import 'dart:async';
 
+import 'package:bordered_text/bordered_text.dart';
 import 'package:flutter/material.dart';
 import 'package:monecom/components/cadastro_button.dart';
-import 'package:monecom/components/paisagem_view.dart';
-import 'package:monecom/main.dart';
 import 'package:monecom/screens/compartilha_screen.dart';
+import 'package:monecom/screens/gado_info_screen.dart';
 import 'package:monecom/screens/lista_clientes_screen.dart';
 import 'package:mqtt_client/mqtt_client.dart' as mqtt;
+
+import '../main.dart';
 
 class BaseScreen extends StatefulWidget {
   @override
@@ -14,6 +16,8 @@ class BaseScreen extends StatefulWidget {
 }
 
 class _BaseScreenState extends State<BaseScreen> {
+  StreamController<Map> _streamController = StreamController<Map>();
+
   String broker = 'broker.hivemq.com';
   double _temp = 20;
   int port = 1883;
@@ -39,13 +43,18 @@ class _BaseScreenState extends State<BaseScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        iconTheme: IconThemeData(color: Colors.white),
-        elevation: 0.8,
-        title: Text(
-          'Mon&Com',
-          style: TextStyle(
-            fontSize: 24,
-            fontWeight: FontWeight.bold,
+        backgroundColor: shrineBlack400,
+        toolbarHeight: 100,
+        elevation: 0,
+        title: BorderedText(
+          strokeWidth: 10.0,
+          strokeColor: shrinePurple900,
+          child: Text(
+            'Mon&Com',
+            style: TextStyle(
+              fontSize: 40,
+              fontFamily: 'UniSans-Heavy',
+            ),
           ),
         ),
         centerTitle: true,
@@ -56,14 +65,7 @@ class _BaseScreenState extends State<BaseScreen> {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                SizedBox(
-                  height: 45,
-                ),
-                SizedBox(
-                  width: 250,
-                  height: 60,
-                  child: CadastroButton(),
-                ),
+                CadastroButton(),
                 SizedBox(
                   height: 30,
                 ),
@@ -76,7 +78,7 @@ class _BaseScreenState extends State<BaseScreen> {
                       return Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => CompartilhaScreen(_temp)),
+                            builder: (context) => CompartilhaScreen()),
                       );
                     },
                     shape: RoundedRectangleBorder(
@@ -89,44 +91,52 @@ class _BaseScreenState extends State<BaseScreen> {
                   ),
                 ),
                 SizedBox(
-                  height: 30,
+                  height: 50,
                 ),
                 SizedBox(
-                  height: 450,
+                  height: 300,
                   width: 340,
                   child: Padding(
-                    padding: EdgeInsets.all(15),
-                    child: Card(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(40.0),
-                      ),
-                      color: shrineBlack100,
-                      elevation: 10,
-                      clipBehavior: Clip.antiAlias,
-                      child: Padding(
-                        padding: EdgeInsets.all(24),
-                        child: SingleChildScrollView(
-                          child: Column(
-                            children: [
-                              SizedBox(
-                                height: 10,
-                              ),
-                              Text(
-                                "A temperatura atual é de ${_temp.toInt()} ºC.",
+                    padding: EdgeInsets.all(12),
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => GadoInfoScreen()),
+                        );
+                      },
+                      child: Card(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20.0),
+                        ),
+                        color: Colors.grey,
+                        elevation: 10,
+                        clipBehavior: Clip.antiAlias,
+                        child: Container(
+                          padding: EdgeInsets.all(40),
+                          decoration: BoxDecoration(
+                              image: DecorationImage(
+                            image: AssetImage("assets/images/cardFundo.png"),
+                            colorFilter: new ColorFilter.mode(
+                                Colors.black.withOpacity(0.4),
+                                BlendMode.dstATop),
+                            fit: BoxFit.cover,
+                          )),
+                          child: Center(
+                            child: BorderedText(
+                              strokeWidth: 4.0,
+                              strokeColor: Colors.black,
+                              child: Text(
+                                "Monitorar Informações",
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
                                     color: Colors.white,
-                                    fontSize: 24,
-                                    fontWeight: FontWeight.bold),
+                                    fontSize: 40,
+                                    fontFamily: 'Roboto',
+                                    fontWeight: FontWeight.w900),
                               ),
-                              SizedBox(
-                                height: 40,
-                              ),
-                              PaisagemView(_temp),
-                              SizedBox(
-                                height: 40,
-                              ),
-                            ],
+                            ),
                           ),
                         ),
                       ),

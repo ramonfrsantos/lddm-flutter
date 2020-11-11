@@ -32,32 +32,41 @@ class CadastroScreen extends StatelessWidget {
               _buildName(),
               _buildEmail(),
               SizedBox(
-                height: 100,
+                height: 60,
               ),
               Observer(
                 builder: (_) {
-                  return RaisedButton(
-                    child: Text('Enviar'),
-                    onPressed: () {
-                      if (cadastroStore.isFormValid) {
-                        FirebaseFirestore db = FirebaseFirestore.instance;
+                  return SizedBox(
+                    height: 40,
+                    width: 110,
+                    child: RaisedButton(
+                      child: Text(
+                        'Enviar',
+                        style: TextStyle(
+                          fontSize: 18,
+                        ),
+                      ),
+                      onPressed: () {
+                        if (cadastroStore.isFormValid) {
+                          FirebaseFirestore db = FirebaseFirestore.instance;
 
-                        db.collection("clientes").add({
-                          "nome": "${cadastroStore.name}",
-                          "email": "${cadastroStore.email}",
-                        });
+                          db.collection("clientes").add({
+                            "nome": "${cadastroStore.name}",
+                            "email": "${cadastroStore.email}",
+                          });
 
-                        Navigator.pop(context);
+                          Navigator.pop(context);
 
-                        return showDialog(
-                            context: context,
-                            builder: (BuildContext context) {
-                              return _buildAlertDialog();
-                            });
-                      } else {
-                        return null;
-                      }
-                    },
+                          return showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return _buildAlertDialog();
+                              });
+                        } else {
+                          return null;
+                        }
+                      },
+                    ),
                   );
                 },
               )
@@ -87,8 +96,7 @@ class CadastroScreen extends StatelessWidget {
         ),
         textAlign: TextAlign.center,
       ),
-      contentPadding:
-          EdgeInsets.only(left: 20, top: 30.0, right: 20, bottom: 40),
+      contentPadding: EdgeInsets.only(left: 20, top: 30.0, right: 20),
       shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(20.0))),
     );

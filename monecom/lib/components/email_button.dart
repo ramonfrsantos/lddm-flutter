@@ -5,13 +5,16 @@ import 'package:url_launcher/url_launcher.dart';
 DocumentSnapshot snapshot;
 
 class EmailButton extends StatelessWidget {
-  final double valor;
+  int statusSensor;
+  int idSensor;
+  var data;
 
-  EmailButton(this.valor);
+  EmailButton(this.statusSensor, this.idSensor, this.data);
 
   @override
   Widget build(BuildContext context) {
-    String message = "Estão fazendo ${valor.toInt()} graus.";
+    String message =
+        "O sensor $idSensor foi acionado na área $statusSensor, em $data.";
 
     return SizedBox(
       width: 300,

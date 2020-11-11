@@ -59,10 +59,11 @@ TextTheme _buildShrineTextTheme(TextTheme base) {
   return base
       .copyWith(
         headline: base.headline.copyWith(
-          fontWeight: FontWeight.w500,
+          fontWeight: FontWeight.w900,
           letterSpacing: defaultLetterSpacing,
         ),
         title: base.title.copyWith(
+          fontWeight: FontWeight.w900,
           fontSize: 18,
           letterSpacing: defaultLetterSpacing,
         ),
@@ -72,27 +73,30 @@ TextTheme _buildShrineTextTheme(TextTheme base) {
           letterSpacing: defaultLetterSpacing,
         ),
         body2: base.body2.copyWith(
-          fontWeight: FontWeight.w500,
+          fontWeight: FontWeight.w900,
           fontSize: 16,
           letterSpacing: defaultLetterSpacing,
         ),
         body1: base.body1.copyWith(
+          fontWeight: FontWeight.w900,
           letterSpacing: defaultLetterSpacing,
         ),
         subhead: base.subhead.copyWith(
+          fontWeight: FontWeight.w900,
           letterSpacing: defaultLetterSpacing,
         ),
         display1: base.display1.copyWith(
+          fontWeight: FontWeight.w900,
           letterSpacing: defaultLetterSpacing,
         ),
         button: base.button.copyWith(
-          fontWeight: FontWeight.w500,
+          fontWeight: FontWeight.w900,
           fontSize: 14,
           letterSpacing: defaultLetterSpacing,
         ),
       )
       .apply(
-        fontFamily: 'Roboto-Regular',
+        fontFamily: 'UniSans-Thin',
         displayColor: shrinePurple900,
         bodyColor: shrineSurfaceWhite,
       );
@@ -119,7 +123,7 @@ const Color shrineBlack400 = Color(0xFF23272a);
 
 const Color shrinePurple900 = Color(0xFF7289da);
 
-const Color shrineErrorRed = Color(0xFFC5032B);
+const Color shrineErrorRed = Colors.red;
 
 const Color shrineSurfaceWhite = Color(0xFFe9e9e9);
 const Color shrineBackgroundWhite = Colors.white;
