@@ -13,9 +13,6 @@ class EmailButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String message =
-        "O sensor $idSensor foi acionado na área $statusSensor, em $data.";
-
     return SizedBox(
       width: 300,
       height: 60,
@@ -54,7 +51,8 @@ class EmailButton extends StatelessWidget {
                     queryParameters: {
                       'subject':
                           '[Mon&Com] Estamos enviando informações do monitoramento.',
-                      'body': '$message'
+                      'body':
+                          "O sensor $idSensor foi acionado na área $statusSensor, em ${data.toString().substring(8, 10).toLowerCase()}/${data.toString().substring(5, 7)}/${data.toString().substring(0, 4)}, às ${data.toString().substring(11, 19)}."
                     },
                   );
 
