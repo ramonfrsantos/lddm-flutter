@@ -150,11 +150,13 @@ class ListaClientesScreen extends StatelessWidget {
                                                         onPressed: () {
                                                           Navigator.pop(
                                                               context);
+                                                          Navigator.pop(
+                                                              context);
                                                         },
                                                       ),
                                                       FlatButton(
                                                         child: Text(
-                                                          "Continar",
+                                                          "Continuar",
                                                           style: TextStyle(
                                                               color:
                                                                   shrinePurple900),
@@ -165,6 +167,8 @@ class ListaClientesScreen extends StatelessWidget {
                                                                   'clientes')
                                                               .doc(docId)
                                                               .delete();
+                                                          Navigator.pop(
+                                                              context);
                                                           Navigator.pop(
                                                               context);
                                                         },

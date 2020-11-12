@@ -110,7 +110,7 @@ class _BaseScreenState extends State<BaseScreen> {
                     padding: EdgeInsets.all(12),
                     child: GestureDetector(
                       onTap: () {
-                        Navigator.push(
+                        return Navigator.push(
                           context,
                           MaterialPageRoute(
                               builder: (context) => GadoInfoScreen()),
@@ -150,10 +150,18 @@ class _BaseScreenState extends State<BaseScreen> {
                     ),
                   ),
                 ),
-                Text(
-                  "Clique para monitorar",
-                  style: TextStyle(
-                    fontSize: 18,
+                GestureDetector(
+                  onTap: () {
+                    return Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => GadoInfoScreen()),
+                    );
+                  },
+                  child: Text(
+                    "Clique para monitorar",
+                    style: TextStyle(
+                      fontSize: 18,
+                    ),
                   ),
                 )
               ],

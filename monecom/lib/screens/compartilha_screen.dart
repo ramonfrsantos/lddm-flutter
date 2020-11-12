@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:monecom/components/email_button.dart';
 import 'package:monecom/components/whatsapp_button.dart';
 import 'package:monecom/library/models/mysql.dart';
+import 'package:monecom/screens/lista_clientes_screen.dart';
 
 class CompartilhaScreen extends StatefulWidget {
   @override
@@ -66,6 +67,17 @@ class _CompartilhaScreenState extends State<CompartilhaScreen> {
               ),
             ],
           ),
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(context,
+              MaterialPageRoute(builder: (_) => ListaClientesScreen()));
+        },
+        tooltip: 'Ligar/Desligar',
+        child: Icon(
+          Icons.people,
+          size: 40,
         ),
       ),
     );
