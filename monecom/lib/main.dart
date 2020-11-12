@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:get_it/get_it.dart';
 import 'package:monecom/screens/base_screen.dart';
 import 'package:monecom/stores/cadastro_store.dart';
+import 'package:splashscreen/splashscreen.dart';
 
 void main() async {
   setupLocators();
@@ -20,14 +21,39 @@ void setupLocators() {
   GetIt.I.registerSingleton(CadastroStore());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Mon&Com',
       debugShowCheckedModeBanner: false,
       theme: _buildShrineTheme(),
-      home: BaseScreen(),
+      home: SplashScreen(
+        useLoader: false,
+        seconds: 5,
+        routeName: "/",
+        navigateAfterSeconds: BaseScreen(),
+        title: Text(
+          'Mon&Com',
+          style: TextStyle(
+            color: shrinePurple900,
+            fontSize: 60,
+            fontFamily: 'UniSans-Heavy',
+          ),
+        ),
+        //imageBackground: AssetImage('assets/images/cardFundo.png'), //bg
+        //image: Image.network('https://i.imgur.com/TyCSG9A.png'), //logo
+        backgroundColor: shrineBlack400,
+        styleTextUnderTheLoader: new TextStyle(),
+        photoSize: 40.0,
+        onClick: () => print(""),
+        loaderColor: Colors.white,
+      ),
     );
   }
 }

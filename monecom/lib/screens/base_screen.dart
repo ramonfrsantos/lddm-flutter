@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:bordered_text/bordered_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:monecom/components/cadastro_button.dart';
 import 'package:monecom/screens/compartilha_screen.dart';
 import 'package:monecom/screens/gado_info_screen.dart';
@@ -41,6 +42,8 @@ class _BaseScreenState extends State<BaseScreen> {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setEnabledSystemUIOverlays(SystemUiOverlay.values);
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: shrineBlack400,

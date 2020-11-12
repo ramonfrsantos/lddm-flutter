@@ -6,7 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="5899874b-135a-42dc-988b-f5f7e7fde365" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/components/email_button.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/components/email_button.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/components/whatsapp_button.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/components/whatsapp_button.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/screens/base_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/base_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,30 +110,30 @@
       <screen x="0" y="0" width="1280" height="689" />
     </state>
     <state x="145" y="96" key="FileChooserDialogImpl/0.0.1280.689@0.0.1280.689" timestamp="1605112109071" />
-    <state width="1236" height="141" key="GridCell.Tab.0.bottom" timestamp="1605138238118">
+    <state width="1236" height="193" key="GridCell.Tab.0.bottom" timestamp="1605144911344">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state width="1236" height="141" key="GridCell.Tab.0.bottom/0.0.1280.689@0.0.1280.689" timestamp="1605138238118" />
-    <state width="1236" height="141" key="GridCell.Tab.0.center" timestamp="1605138238118">
+    <state width="1236" height="193" key="GridCell.Tab.0.bottom/0.0.1280.689@0.0.1280.689" timestamp="1605144911344" />
+    <state width="1236" height="193" key="GridCell.Tab.0.center" timestamp="1605144911344">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state width="1236" height="141" key="GridCell.Tab.0.center/0.0.1280.689@0.0.1280.689" timestamp="1605138238118" />
-    <state width="1236" height="141" key="GridCell.Tab.0.left" timestamp="1605138238118">
+    <state width="1236" height="193" key="GridCell.Tab.0.center/0.0.1280.689@0.0.1280.689" timestamp="1605144911344" />
+    <state width="1236" height="193" key="GridCell.Tab.0.left" timestamp="1605144911344">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state width="1236" height="141" key="GridCell.Tab.0.left/0.0.1280.689@0.0.1280.689" timestamp="1605138238118" />
-    <state width="1236" height="141" key="GridCell.Tab.0.right" timestamp="1605138238118">
+    <state width="1236" height="193" key="GridCell.Tab.0.left/0.0.1280.689@0.0.1280.689" timestamp="1605144911344" />
+    <state width="1236" height="193" key="GridCell.Tab.0.right" timestamp="1605144911344">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state width="1236" height="141" key="GridCell.Tab.0.right/0.0.1280.689@0.0.1280.689" timestamp="1605138238118" />
+    <state width="1236" height="193" key="GridCell.Tab.0.right/0.0.1280.689@0.0.1280.689" timestamp="1605144911344" />
     <state x="0" y="91" key="IDE.errors.dialog" timestamp="1605111121790">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
     <state x="0" y="91" key="IDE.errors.dialog/0.0.1280.689@0.0.1280.689" timestamp="1605111121790" />
-    <state x="348" y="78" width="585" height="534" key="find.popup" timestamp="1605121212493">
+    <state x="348" y="78" width="585" height="534" key="find.popup" timestamp="1605142444605">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state x="348" y="78" width="585" height="534" key="find.popup/0.0.1280.689@0.0.1280.689" timestamp="1605121212493" />
+    <state x="348" y="78" width="585" height="534" key="find.popup/0.0.1280.689@0.0.1280.689" timestamp="1605142444605" />
     <state x="298" y="153" key="run.anything.popup" timestamp="1604955940207">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
