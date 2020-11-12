@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:monecom/main.dart';
+import 'package:monecom/screens/alterar_cadastro_screen.dart';
 
 class ListaClientesScreen extends StatelessWidget {
   final db = FirebaseFirestore.instance;
@@ -74,59 +75,110 @@ class ListaClientesScreen extends StatelessWidget {
                           var docId = doc.id;
 
                           return GestureDetector(
-                            onLongPress: () async {
-                              showDialog(
-                                context: context,
-                                builder: (BuildContext context) {
-                                  return AlertDialog(
-                                    backgroundColor: Colors.white,
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(20.0),
-                                    ),
-                                    title: Text(
-                                      "Atenção:",
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(
-                                        fontSize: 22,
-                                        color: shrineBlack400,
+                            onLongPress: () {
+                              return showModalBottomSheet(
+                                  context: context,
+                                  builder: (_) {
+                                    return BottomSheet(
+                                      onClosing: () {},
+                                      builder: (_) => Column(
+                                        mainAxisSize: MainAxisSize.min,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.stretch,
+                                        children: [
+                                          FlatButton(
+                                            padding: EdgeInsets.symmetric(
+                                                vertical: 22),
+                                            child: Text(
+                                              'Alterar cadastro',
+                                              style: TextStyle(fontSize: 18),
+                                            ),
+                                            onPressed: () {
+                                              Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                      builder: (_) =>
+                                                          AlterarCadastroScreen(
+                                                              docId)));
+                                            },
+                                          ),
+                                          FlatButton(
+                                            padding: EdgeInsets.symmetric(
+                                                vertical: 22),
+                                            child: Text(
+                                              'Excluir cadastro',
+                                              style: TextStyle(fontSize: 18),
+                                            ),
+                                            onPressed: () {
+                                              showDialog(
+                                                context: context,
+                                                builder:
+                                                    (BuildContext context) {
+                                                  return AlertDialog(
+                                                    backgroundColor:
+                                                        Colors.white,
+                                                    shape:
+                                                        RoundedRectangleBorder(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              20.0),
+                                                    ),
+                                                    title: Text(
+                                                      "Atenção:",
+                                                      textAlign:
+                                                          TextAlign.center,
+                                                      style: TextStyle(
+                                                        fontSize: 22,
+                                                        color: shrineBlack400,
+                                                      ),
+                                                    ),
+                                                    content: Text(
+                                                      "Deseja confirmar a exclusão do cadastro desse usuário?",
+                                                      style: TextStyle(
+                                                        fontSize: 18,
+                                                        color: shrineBlack400,
+                                                      ),
+                                                    ),
+                                                    actions: [
+                                                      FlatButton(
+                                                        child: Text(
+                                                          "Cancelar",
+                                                          style: TextStyle(
+                                                              color:
+                                                                  shrinePurple900),
+                                                        ),
+                                                        onPressed: () {
+                                                          Navigator.pop(
+                                                              context);
+                                                        },
+                                                      ),
+                                                      FlatButton(
+                                                        child: Text(
+                                                          "Continar",
+                                                          style: TextStyle(
+                                                              color:
+                                                                  shrinePurple900),
+                                                        ),
+                                                        onPressed: () async {
+                                                          await db
+                                                              .collection(
+                                                                  'clientes')
+                                                              .doc(docId)
+                                                              .delete();
+                                                          Navigator.pop(
+                                                              context);
+                                                        },
+                                                      ),
+                                                    ],
+                                                  );
+                                                },
+                                              );
+                                            },
+                                          )
+                                        ],
                                       ),
-                                    ),
-                                    content: Text(
-                                      "Deseja confirmar a exclusão do cadastro desse usuário?",
-                                      style: TextStyle(
-                                        fontSize: 18,
-                                        color: shrineBlack400,
-                                      ),
-                                    ),
-                                    actions: [
-                                      FlatButton(
-                                        child: Text(
-                                          "Cancelar",
-                                          style:
-                                              TextStyle(color: shrinePurple900),
-                                        ),
-                                        onPressed: () {
-                                          Navigator.pop(context);
-                                        },
-                                      ),
-                                      FlatButton(
-                                        child: Text(
-                                          "Continar",
-                                          style:
-                                              TextStyle(color: shrinePurple900),
-                                        ),
-                                        onPressed: () async {
-                                          await db
-                                              .collection('clientes')
-                                              .doc(docId)
-                                              .delete();
-                                          Navigator.pop(context);
-                                        },
-                                      ),
-                                    ],
-                                  );
-                                },
-                              );
+                                    );
+                                  });
                             },
                             child: ListTile(
                               title: Text(item['nome']),

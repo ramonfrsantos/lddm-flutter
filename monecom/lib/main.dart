@@ -46,16 +46,11 @@ class _MyAppState extends State<MyApp> {
             fontFamily: 'UniSans-Heavy',
           ),
         ),
-        //imageBackground: AssetImage('assets/images/cardFundo.png'), //bg
         image: Image.asset(
           'assets/images/logoApp.png',
           alignment: Alignment.center,
         ), //logo
         backgroundColor: Colors.white,
-        styleTextUnderTheLoader: new TextStyle(),
-        photoSize: 40.0,
-        onClick: () => print(""),
-        loaderColor: Colors.white,
       ),
     );
   }
