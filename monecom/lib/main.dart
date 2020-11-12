@@ -47,8 +47,11 @@ class _MyAppState extends State<MyApp> {
           ),
         ),
         //imageBackground: AssetImage('assets/images/cardFundo.png'), //bg
-        //image: Image.network('https://i.imgur.com/TyCSG9A.png'), //logo
-        backgroundColor: shrineBlack400,
+        image: Image.asset(
+          'assets/images/logoApp.png',
+          alignment: Alignment.center,
+        ), //logo
+        backgroundColor: Colors.white,
         styleTextUnderTheLoader: new TextStyle(),
         photoSize: 40.0,
         onClick: () => print(""),

@@ -11,6 +11,13 @@ import 'package:mqtt_client/mqtt_client.dart' as mqtt;
 
 import '../main.dart';
 
+//------------------------------------------------------------------
+// As configurações do mqtt estão mantidas no app, mas ele
+// está integrado somente com o mysql. Caso haja necessidade
+// os topicos mqtt podem ser usados normalmente, basta alterar
+// as configurações.
+//------------------------------------------------------------------
+
 class BaseScreen extends StatefulWidget {
   @override
   _BaseScreenState createState() => _BaseScreenState();
@@ -110,35 +117,32 @@ class _BaseScreenState extends State<BaseScreen> {
                         );
                       },
                       child: Card(
+                        margin: EdgeInsets.all(20),
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20.0),
+                          borderRadius: BorderRadius.circular(40.0),
                         ),
-                        color: Colors.grey,
+                        color: Colors.white,
                         elevation: 10,
                         clipBehavior: Clip.antiAlias,
                         child: Container(
-                          padding: EdgeInsets.all(40),
+                          padding: EdgeInsets.only(top: 15, right: 15),
                           decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(40),
+                              border:
+                                  Border.all(width: 4, color: shrinePurple900),
                               image: DecorationImage(
-                            image: AssetImage("assets/images/cardFundo.png"),
-                            colorFilter: new ColorFilter.mode(
-                                Colors.black.withOpacity(0.4),
-                                BlendMode.dstATop),
-                            fit: BoxFit.cover,
-                          )),
+                                image:
+                                    AssetImage("assets/images/cardFundo.png"),
+                                colorFilter: new ColorFilter.mode(
+                                    Colors.black.withOpacity(0.3),
+                                    BlendMode.dstATop),
+                                fit: BoxFit.cover,
+                              )),
                           child: Center(
-                            child: BorderedText(
-                              strokeWidth: 4.0,
-                              strokeColor: Colors.black,
-                              child: Text(
-                                "Monitorar Informações",
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 40,
-                                    fontFamily: 'Roboto',
-                                    fontWeight: FontWeight.w900),
-                              ),
+                            child: Image.asset(
+                              'assets/images/logoApp.png',
+                              width: 300,
+                              height: 300,
                             ),
                           ),
                         ),
@@ -146,6 +150,12 @@ class _BaseScreenState extends State<BaseScreen> {
                     ),
                   ),
                 ),
+                Text(
+                  "Clique para monitorar",
+                  style: TextStyle(
+                    fontSize: 18,
+                  ),
+                )
               ],
             ),
           ),

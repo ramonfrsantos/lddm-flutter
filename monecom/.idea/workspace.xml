@@ -5,12 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5899874b-135a-42dc-988b-f5f7e7fde365" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/assets/images/logoApp.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/components/whatsapp_button.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/components/whatsapp_button.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/mipmap-hdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/res/mipmap-hdpi/ic_launcher.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/mipmap-mdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/res/mipmap-mdpi/ic_launcher.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/mipmap-xhdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/res/mipmap-xhdpi/ic_launcher.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/screens/base_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/base_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,27 +46,27 @@
     <property name="dart.analysis.tool.window.force.activate" value="true" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/assets/fonts" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/assets/images" />
     <property name="project.structure.last.edited" value="SDK Location" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\HP\Desktop\LDDM\projetos\lddm-flutter\monecom\assets" />
-      <recent name="C:\Users\HP\Desktop\LDDM\projetos\lddm-flutter\monecom\assets\images" />
-      <recent name="C:\Users\HP\Desktop\LDDM\projetos\lddm-flutter\monecom" />
-      <recent name="C:\Users\HP\Desktop\LDDM\projetos\lddm-flutter\monecom\android\app" />
-    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />
       <recent name="ui" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\HP\Desktop\LDDM\projetos\lddm-flutter\monecom\assets\fonts" />
       <recent name="C:\Users\HP\Desktop\LDDM\projetos\lddm-flutter\monecom\assets\images" />
+      <recent name="C:\Users\HP\Desktop\LDDM\projetos\lddm-flutter\monecom\assets\fonts" />
       <recent name="C:\Users\HP\Desktop\LDDM\projetos\lddm-flutter\monecom\lib\library\util" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\HP\Desktop\LDDM\projetos\lddm-flutter\monecom\assets" />
+      <recent name="C:\Users\HP\Desktop\LDDM\projetos\lddm-flutter\monecom\assets\images" />
+      <recent name="C:\Users\HP\Desktop\LDDM\projetos\lddm-flutter\monecom" />
+      <recent name="C:\Users\HP\Desktop\LDDM\projetos\lddm-flutter\monecom\android\app" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -110,30 +114,30 @@
       <screen x="0" y="0" width="1280" height="689" />
     </state>
     <state x="145" y="96" key="FileChooserDialogImpl/0.0.1280.689@0.0.1280.689" timestamp="1605112109071" />
-    <state width="1236" height="193" key="GridCell.Tab.0.bottom" timestamp="1605144911344">
+    <state width="1236" height="180" key="GridCell.Tab.0.bottom" timestamp="1605151146262">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state width="1236" height="193" key="GridCell.Tab.0.bottom/0.0.1280.689@0.0.1280.689" timestamp="1605144911344" />
-    <state width="1236" height="193" key="GridCell.Tab.0.center" timestamp="1605144911344">
+    <state width="1236" height="180" key="GridCell.Tab.0.bottom/0.0.1280.689@0.0.1280.689" timestamp="1605151146262" />
+    <state width="1236" height="180" key="GridCell.Tab.0.center" timestamp="1605151146260">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state width="1236" height="193" key="GridCell.Tab.0.center/0.0.1280.689@0.0.1280.689" timestamp="1605144911344" />
-    <state width="1236" height="193" key="GridCell.Tab.0.left" timestamp="1605144911344">
+    <state width="1236" height="180" key="GridCell.Tab.0.center/0.0.1280.689@0.0.1280.689" timestamp="1605151146260" />
+    <state width="1236" height="180" key="GridCell.Tab.0.left" timestamp="1605151146260">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state width="1236" height="193" key="GridCell.Tab.0.left/0.0.1280.689@0.0.1280.689" timestamp="1605144911344" />
-    <state width="1236" height="193" key="GridCell.Tab.0.right" timestamp="1605144911344">
+    <state width="1236" height="180" key="GridCell.Tab.0.left/0.0.1280.689@0.0.1280.689" timestamp="1605151146260" />
+    <state width="1236" height="180" key="GridCell.Tab.0.right" timestamp="1605151146262">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state width="1236" height="193" key="GridCell.Tab.0.right/0.0.1280.689@0.0.1280.689" timestamp="1605144911344" />
+    <state width="1236" height="180" key="GridCell.Tab.0.right/0.0.1280.689@0.0.1280.689" timestamp="1605151146262" />
     <state x="0" y="91" key="IDE.errors.dialog" timestamp="1605111121790">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
     <state x="0" y="91" key="IDE.errors.dialog/0.0.1280.689@0.0.1280.689" timestamp="1605111121790" />
-    <state x="348" y="78" width="585" height="534" key="find.popup" timestamp="1605142444605">
+    <state x="348" y="78" width="585" height="534" key="find.popup" timestamp="1605149673415">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state x="348" y="78" width="585" height="534" key="find.popup/0.0.1280.689@0.0.1280.689" timestamp="1605142444605" />
+    <state x="348" y="78" width="585" height="534" key="find.popup/0.0.1280.689@0.0.1280.689" timestamp="1605149673415" />
     <state x="298" y="153" key="run.anything.popup" timestamp="1604955940207">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
