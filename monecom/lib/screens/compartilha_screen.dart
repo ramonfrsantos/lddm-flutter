@@ -21,11 +21,13 @@ class _CompartilhaScreenState extends State<CompartilhaScreen> {
           'select statusSensor,idSensor, data from registrosIot where idSensor = 3;';
       conn.query(sql).then((results) {
         for (var row in results) {
-          setState(() {
-            statusSensor = row[0];
-            idSensor = row[1];
-            data = row[2];
-          });
+          if (this.mounted) {
+            setState(() {
+              statusSensor = row[0];
+              idSensor = row[1];
+              data = row[2];
+            });
+          }
         }
       });
       conn.close();
@@ -69,16 +71,20 @@ class _CompartilhaScreenState extends State<CompartilhaScreen> {
           ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.push(context,
-              MaterialPageRoute(builder: (_) => ListaClientesScreen()));
-        },
-        tooltip: 'Ligar/Desligar',
-        child: Icon(
-          Icons.people,
-          size: 40,
-        ),
+      floatingActionButton: _listaFloatingButton(),
+    );
+  }
+
+  Widget _listaFloatingButton() {
+    return FloatingActionButton(
+      onPressed: () {
+        Navigator.push(
+            context, MaterialPageRoute(builder: (_) => ListaClientesScreen()));
+      },
+      tooltip: 'Ligar/Desligar',
+      child: Icon(
+        Icons.people,
+        size: 40,
       ),
     );
   }

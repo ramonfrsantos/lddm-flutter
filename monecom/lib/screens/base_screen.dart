@@ -69,119 +69,132 @@ class _BaseScreenState extends State<BaseScreen> {
         ),
         centerTitle: true,
       ),
-      body: Container(
-        margin: EdgeInsets.only(bottom: 100),
-        child: Center(
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                CadastroButton(),
-                SizedBox(
-                  height: 30,
-                ),
-                SizedBox(
-                  width: 250,
-                  height: 60,
-                  child: RaisedButton(
-                    elevation: 8,
-                    onPressed: () {
+      body: _buildBaseBody(),
+      floatingActionButton: _listaFloatingButton(),
+    );
+  }
+
+  Widget _buildBaseBody() {
+    return Container(
+      margin: EdgeInsets.only(bottom: 100),
+      child: Center(
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              CadastroButton(),
+              SizedBox(
+                height: 30,
+              ),
+              _buildCompartilhaButton(),
+              SizedBox(
+                height: 50,
+              ),
+              SizedBox(
+                height: 300,
+                width: 340,
+                child: Padding(
+                  padding: EdgeInsets.all(12),
+                  child: GestureDetector(
+                    onTap: () {
                       return Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => CompartilhaScreen()),
+                            builder: (context) => GadoInfoScreen()),
                       );
                     },
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30.0),
-                    ),
-                    child: Text(
-                      'Compartilhamento',
-                      style: TextStyle(fontSize: 20),
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: 50,
-                ),
-                SizedBox(
-                  height: 300,
-                  width: 340,
-                  child: Padding(
-                    padding: EdgeInsets.all(12),
-                    child: GestureDetector(
-                      onTap: () {
-                        return Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => GadoInfoScreen()),
-                        );
-                      },
-                      child: Card(
-                        margin: EdgeInsets.all(20),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(40.0),
-                        ),
-                        color: Colors.white,
-                        elevation: 10,
-                        clipBehavior: Clip.antiAlias,
-                        child: Container(
-                          padding: EdgeInsets.only(top: 15, right: 15),
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(40),
-                              border:
-                                  Border.all(width: 4, color: shrinePurple900),
-                              image: DecorationImage(
-                                image:
-                                    AssetImage("assets/images/cardFundo.png"),
-                                colorFilter: new ColorFilter.mode(
-                                    Colors.black.withOpacity(0.3),
-                                    BlendMode.dstATop),
-                                fit: BoxFit.cover,
-                              )),
-                          child: Center(
-                            child: Image.asset(
-                              'assets/images/logoApp.png',
-                              width: 300,
-                              height: 300,
-                            ),
+                    child: Card(
+                      margin: EdgeInsets.all(20),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(40.0),
+                      ),
+                      color: Colors.white,
+                      elevation: 10,
+                      clipBehavior: Clip.antiAlias,
+                      child: Container(
+                        padding: EdgeInsets.only(top: 15, right: 15),
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(40),
+                            border:
+                                Border.all(width: 4, color: shrinePurple900),
+                            image: DecorationImage(
+                              image: AssetImage("assets/images/cardFundo.png"),
+                              colorFilter: new ColorFilter.mode(
+                                  Colors.black.withOpacity(0.3),
+                                  BlendMode.dstATop),
+                              fit: BoxFit.cover,
+                            )),
+                        child: Center(
+                          child: Image.asset(
+                            'assets/images/logoApp.png',
+                            width: 300,
+                            height: 300,
                           ),
                         ),
                       ),
                     ),
                   ),
                 ),
-                GestureDetector(
-                  onTap: () {
-                    return Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => GadoInfoScreen()),
-                    );
-                  },
-                  child: Text(
-                    "Clique para monitorar",
-                    style: TextStyle(
-                      fontSize: 18,
-                    ),
+              ),
+              GestureDetector(
+                onTap: () {
+                  return Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => GadoInfoScreen()),
+                  );
+                },
+                child: Text(
+                  "Clique para monitorar",
+                  style: TextStyle(
+                    fontSize: 18,
                   ),
-                )
-              ],
-            ),
+                ),
+              )
+            ],
           ),
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.push(context,
-              MaterialPageRoute(builder: (_) => ListaClientesScreen()));
-        },
-        tooltip: 'Ligar/Desligar',
-        child: Icon(
-          Icons.people,
-          size: 40,
         ),
       ),
     );
   }
+
+  Widget _listaFloatingButton() {
+    return FloatingActionButton(
+      onPressed: () {
+        Navigator.push(
+            context, MaterialPageRoute(builder: (_) => ListaClientesScreen()));
+      },
+      tooltip: 'Ligar/Desligar',
+      child: Icon(
+        Icons.people,
+        size: 40,
+      ),
+    );
+  }
+
+  Widget _buildCompartilhaButton() {
+    return SizedBox(
+      width: 250,
+      height: 60,
+      child: RaisedButton(
+        elevation: 8,
+        onPressed: () {
+          return Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => CompartilhaScreen()),
+          );
+        },
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(30.0),
+        ),
+        child: Text(
+          'Compartilhamento',
+          style: TextStyle(fontSize: 20),
+        ),
+      ),
+    );
+  }
+
+  //-------------------------------------------------------------------------
+  // MQTT - CONFIG
 
   //Conecta no servidor MQTT à partir dos dados configurados nos atributos desta classe (broker, port, etc...)
 
