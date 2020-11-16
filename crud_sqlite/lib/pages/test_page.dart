@@ -1,9 +1,8 @@
 import 'dart:async';
 
 import 'package:crud_sqlite/helpers/db_helper.dart';
+import 'package:crud_sqlite/helpers/produto.dart';
 import 'package:flutter/material.dart';
-
-import 'file:///C:/Users/HP/Desktop/LDDM/projetos/crud_sqlite/lib/helpers/produto.dart';
 
 class TestePage extends StatefulWidget {
   final String title;

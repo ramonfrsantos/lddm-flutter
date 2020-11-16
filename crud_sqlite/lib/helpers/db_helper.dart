@@ -1,11 +1,10 @@
 import 'dart:async';
 import 'dart:io' as io;
 
+import 'package:crud_sqlite/helpers/produto.dart';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:sqflite/sqflite.dart';
-
-import 'file:///C:/Users/HP/Desktop/LDDM/projetos/crud_sqlite/lib/helpers/produto.dart';
 
 class DBHelper {
   static Database _db;
