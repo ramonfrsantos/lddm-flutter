@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "89238475235",
+    "firebase_url": "https://cadastro-viacep.firebaseio.com",
+    "project_id": "cadastro-viacep",
+    "storage_bucket": "cadastro-viacep.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:89238475235:android:7f124d3dc4d5a56da150d6",
+        "android_client_info": {
+          "package_name": "br.com.santos.cadastro_firebaase_viacep"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "89238475235-gtbhdnmolrme5bg18n74ffe16o83i09g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.com.santos.cadastro_firebaase_viacep",
+            "certificate_hash": "35b6cbe3ff418f7248263953cee99be22a9014a0"
+          }
+        },
+        {
+          "client_id": "89238475235-n0g79oh7mslf9fpdkdc7hrc6ttobsd5c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAptVlXiIL4u2079I-gFYPji56N0aeE7Gc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "89238475235-n0g79oh7mslf9fpdkdc7hrc6ttobsd5c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
